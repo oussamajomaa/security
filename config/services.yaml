@@ -4,8 +4,11 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
+    app.encryptkey: '314004009df0519744d3100270c6188c568650318cf5aed3d88de5b9777deb6b4eb0bed60337ae19a3595802019a528419aac084512107e8e6c5e7b911cd805e1c66c549486a5e3e04949dddff23da97e146f7d7ace9d287dd11e204a9c8ef19524fb51e'
 
 services:
+    
+            
     # default configuration for services in *this* file
     _defaults:
         autowire: true      # Automatically injects dependencies in your services.
@@ -25,3 +28,9 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    App\EventListener\DoctrineListener:
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
+            - { name: doctrine.event_listener, event: preUpdate  }
+            - { name: doctrine.event_listener, event: postLoad   }

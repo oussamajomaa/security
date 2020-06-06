@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+
+<div class="container my-5 bg-light ">
+    
+    {% if app.user %}
+    <div class="my-2 py-2">
+        <h3>Vous êtes: <strong>{{ app.user.name }}.</strong> Votre Email: <strong>{{ app.user.email }}</strong></h3>
+        <a class="btn btn-danger my-2" href="{{ path('app_logout')}}">se déconnecter</a>
+    </div>
+    {% else %}
+        <div class="my-2">
+            <a class="btn btn-success my-2" href="{{ path('app_register')}}">s'inscrire</a>
+            <a class="btn btn-primary my-2" href="{{ path('app_login')}}">se connecter</a>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

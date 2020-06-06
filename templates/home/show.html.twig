@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+
+<div class="container my-5 bg-light ">
+
+    
+        <table class="table">
+            <thead>
+                <th scope="col">NOM</th>
+                <th scope="col">EMAIL</th>
+            </thead>
+            {% for user in users %}
+                <tr>
+                    <td>
+                        {{ user.name }}
+                    </td>
+                    <td>
+                        {{ user.email }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    
+</div>
+{% endblock %}
