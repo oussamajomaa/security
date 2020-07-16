@@ -3,7 +3,7 @@
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
-<div class="container my-5 bg-light">
+<div class="container my-5 p-5 bg-light">
 
     <form method="post">
         {% if error %}
@@ -42,10 +42,13 @@
             </div>
         #}
     
-        <button class="btn btn-primary my-2" type="submit">
-            Sign in
-        </button>
-        <a class="btn btn-success my-2" href="{{ path('app_register')}}">s'inscrire</a>
+        <button class="btn btn-primary my-2" type="submit">se connécter</button>
+        <div >
+            <a class="mr-3" href="{{ path('app_register')}}">s'inscrire</a>
+            <a class="" href="{{ path('app_forgot_password_request')}}">mot de passe oublié</a>
+        </div>
+
+        
     </form>
 </div>
 {% endblock %}
